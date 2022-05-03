@@ -9,6 +9,7 @@ fn main() {
     let day = parse_args();
     match day {
         1 => challenges::day1::run(),
+        2 => challenges::day2::run(),
         _ => println!("Not yet implemented...")
     }
 }

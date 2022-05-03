@@ -1,25 +1,19 @@
-use std::fs;
-const LINE_ENDING: &'static str = "\n";
+use crate::challenges::utils;
 
 pub fn run() {
-    let input = read_input("src/challenges/input.txt");
+    let input = read_input("src/challenges/day1/input.txt");
     let res = count_depth_measurement_increases(input);
     println!("Day 1 result, phase 1 = {}", res);
 
-    let input = read_input("src/challenges/input-phase2.txt");
+    let input = read_input("src/challenges/day1/input-phase2.txt");
     let res = count_depth_measurement_increases_phase_2(input);
     println!("Day 1 result, phase 1 = {}", res);
 }
 
 fn read_input(filename: &str) -> Vec<i32> {
-    match fs::read_to_string(filename) {
-        Ok(content) => {
-            content.trim().split(LINE_ENDING)
-                .filter_map(|s| s.parse::<i32>().ok())
-                .collect()
-        },
-        Err(err) => panic!("{}", err.to_string())
-    }
+    utils::read_input_file_line_separated(filename).iter()
+        .filter_map(|s| s.parse::<i32>().ok())
+        .collect()
 }
 
 fn count_depth_measurement_increases(input: Vec<i32>) -> i32 {
