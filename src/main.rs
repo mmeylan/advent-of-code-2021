@@ -10,6 +10,7 @@ fn main() {
     match day {
         1 => challenges::day1::run(),
         2 => challenges::day2::run(),
+        3 => challenges::day3::run(),
         _ => println!("Not yet implemented...")
     }
 }
